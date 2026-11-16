@@ -9,9 +9,10 @@ if not stream.isOpened():
 fps=stream.get(cv2.CAP_PROP_FPS)
 width=int(stream.get(3))
 height=int(stream.get(4))
-output=cv2.VideoWriter("assets/4_stream.mp4",
+output=cv2.VideoWriter("assets/video.mp4",
             cv2.VideoWriter_fourcc('m', 'p','4', 'v'  ),
             fps=fps, frameSize=(width,height))
+
 while(True):
     ret,frame=stream.read()
     if not ret:
@@ -25,6 +26,9 @@ while(True):
         break
     
 stream.release()
+output.release()
+
 cv2.destroyAllWindows()
+print(output)
 
             
