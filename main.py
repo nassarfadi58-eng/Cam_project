@@ -28,14 +28,14 @@ def detect_features(frame):
     faces=face_cascade.detectMultiScale(gray, 1.3, 5)
     for (x,y,w, h) in faces:
         frame=cv2.rectangle(frame, (x, y),(x+w, y+h),
-                            color=(0,255,0), thickness=5)
+                            color=(0, 0,255), thickness=5)
         face=frame[y : y+h, x : x+w]
         gray_face=gray[y : y+h, x : x+w]
         smiles=smile_cascade.detectMultiScale(gray_face,
                         2.5, minNeighbors=9)
         for(xp, yp, wp, hp)in smiles:
             face=cv2.rectangle(face,(xp, yp),(xp+wp, yp+hp),
-                                color=(0, 0, 255), thickness=5)
+                                color=(0, 255, 0), thickness=5)
             
             eyes=eye_cascade.detectMultiScale(gray_face,
                                               2.5, minNeighbors=5)
